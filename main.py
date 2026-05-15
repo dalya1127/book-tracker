@@ -22,6 +22,11 @@ def add_book():
     author = input("Автор: ")
     title = input("Название: ")
 
+    for book in books:
+    if book["author"] == author and book["title"] == title:
+        print("Такая книга уже есть")
+        return
+        
     rating = int(input("Оценка: "))
     date = input("Дата: ")
 
@@ -55,3 +60,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+for book in books:
+if book["author"] == author and book["title"] == title:
+    print("Такая книга уже есть")
+    return
