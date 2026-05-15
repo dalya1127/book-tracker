@@ -16,20 +16,40 @@ def save_books(books):
         json.dump(books, file, ensure_ascii=False, indent=4)
 
 
+def add_book():
+    books = load_books()
+
+    author = input("Автор: ")
+    title = input("Название: ")
+
+    rating = int(input("Оценка: "))
+    date = input("Дата: ")
+
+    book = {
+        "author": author,
+        "title": title,
+        "rating": rating,
+        "date": date
+    }
+
+    books.append(book)
+
+    save_books(books)
+
+    print("Книга добавлена")
+
+
 def main():
     while True:
-        print("\nТрекер прочитанных книг")
-        print("1. Добавить книгу")
-        print("2. Показать все книги")
-        print("3. Показать среднюю оценку")
-        print("4. Статистика по авторам")
-        print("5. Удалить книгу")
+        print("\n1. Добавить книгу")
         print("6. Выход")
 
         choice = input("Выберите пункт: ")
 
-        if choice == "6":
-            print("Выход")
+        if choice == "1":
+            add_book()
+
+        elif choice == "6":
             break
 
 
